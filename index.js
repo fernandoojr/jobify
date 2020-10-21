@@ -2,10 +2,11 @@ const { response } = require('express')
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+
 const sqlite = require('sqlite-sync')
-//const sqlite2 = requite('sqlite')
 dbConnection = sqlite.connect('banco.sqlite');
-//const dbConnection = sqlite.open('banco.sqlite', {Promise})
+
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -137,8 +138,7 @@ const init = async() =>{
     //await db.run(`insert into vagas(categoria, titulo, descricao) values (2, '${vaga}', '${descricao}');`)
 }
 init()
-//comentario
-app.listen(3000, (err) => {
+app.listen(port, (err) => {
     if (err){
         console.log('Não foi possível iniciar o servidor jobify')
     }else{
