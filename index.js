@@ -4,9 +4,11 @@ const app = express()
 const bodyParser = require('body-parser')
 
 const sqlite = require('sqlite-sync')
-dbConnection = sqlite.connect('banco.sqlite');
+dbConnection = sqlite.connect(path.resolve(__dirname,'banco.sqlite'));
 
 const port = process.env.PORT || 3000
+
+const path = require('path')
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
