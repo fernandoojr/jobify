@@ -3,12 +3,13 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 
+const path = require('path')
 const sqlite = require('sqlite-sync')
-dbConnection = sqlite.connect(path.resolve(__dirname,'banco.sqlite'));
 
 const port = process.env.PORT || 3000
 
-const path = require('path')
+dbConnection = sqlite.connect(path.resolve(__dirname,'banco.sqlite'));
+
 
 app.set('views', path.join(__dirname, 'view'))
 app.set('view engine', 'ejs')
